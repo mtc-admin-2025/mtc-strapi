@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Course_ID": {
+      "type": "string"
+    },
+    "Course_Name": {
+      "type": "string"
+    },
+    "Course_Description": {
+      "type": "text"
+    },
+    "trainer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::trainer.trainer",
+      "inversedBy": "courses"
+    },
+    "Assessment_Type": {
+      "type": "string"
+    }
+  }
+}

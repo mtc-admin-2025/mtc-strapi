@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_schedule_time_schedules",
+  "info": {
+    "displayName": "Schedule",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Schedule_date": {
+      "type": "string"
+    },
+    "Schedule_time": {
+      "type": "string"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course.course"
+    },
+    "trainer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::trainer.trainer"
+    },
+    "students": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::student.student"
+    }
+  }
+}

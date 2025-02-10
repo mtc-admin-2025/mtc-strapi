@@ -1,0 +1,201 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Reference_Number": {
+      "type": "string",
+      "minLength": 18,
+      "maxLength": 18,
+      "unique": true
+    },
+    "Unique_Learners_Identifier": {
+      "type": "text",
+      "maxLength": 16,
+      "minLength": 16,
+      "unique": true,
+      "required": false
+    },
+    "Students_Name": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "text"
+    },
+    "Client_Type": {
+      "type": "enumeration",
+      "enum": [
+        "TVET Graduating Student",
+        "TVET Graduate",
+        "Industry Worker",
+        "K-12",
+        "OFW"
+      ]
+    },
+    "Mothers_Name": {
+      "type": "string"
+    },
+    "Fathers_Name": {
+      "type": "string"
+    },
+    "Sex": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "Civil_Status": {
+      "type": "enumeration",
+      "enum": [
+        "Single ",
+        "Married",
+        "Widowed",
+        "Separated"
+      ]
+    },
+    "Contact_Number": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Highest_Educational_Attainment": {
+      "type": "enumeration",
+      "enum": [
+        "Elementary Graduate",
+        "High School Graduate",
+        "TVET Graduate",
+        "College Level",
+        "College Graduate"
+      ]
+    },
+    "Employment_Status": {
+      "type": "enumeration",
+      "enum": [
+        "Casual",
+        "Job Order",
+        "Probationary",
+        "Permanent",
+        "Self-Employed",
+        "OFW"
+      ]
+    },
+    "Birthdate": {
+      "type": "string"
+    },
+    "Birthplace": {
+      "type": "text"
+    },
+    "Age": {
+      "type": "integer"
+    },
+    "Work_company": {
+      "type": "string"
+    },
+    "Work_position": {
+      "type": "string"
+    },
+    "Work_date": {
+      "type": "string"
+    },
+    "Work_salary": {
+      "type": "string"
+    },
+    "Work_status": {
+      "type": "string"
+    },
+    "Work_years": {
+      "type": "integer"
+    },
+    "Tranining_title": {
+      "type": "string"
+    },
+    "Training_venue": {
+      "type": "string"
+    },
+    "Training_date": {
+      "type": "string"
+    },
+    "Training_hours": {
+      "type": "string"
+    },
+    "Training_conducted": {
+      "type": "string"
+    },
+    "License_title": {
+      "type": "string"
+    },
+    "License_year": {
+      "type": "string"
+    },
+    "License_venue": {
+      "type": "string"
+    },
+    "License_rating": {
+      "type": "string"
+    },
+    "License_remarks": {
+      "type": "string"
+    },
+    "License_expiry": {
+      "type": "string"
+    },
+    "Competency_title": {
+      "type": "string"
+    },
+    "Compe": {
+      "type": "string"
+    },
+    "Competency_level": {
+      "type": "string"
+    },
+    "Competency_sector": {
+      "type": "string"
+    },
+    "Competency_certnum": {
+      "type": "string"
+    },
+    "Competency_issuedate": {
+      "type": "string"
+    },
+    "Competency_expdate": {
+      "type": "string"
+    },
+    "Picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Signature": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "trainers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::trainer.trainer",
+      "mappedBy": "students"
+    }
+  }
+}
