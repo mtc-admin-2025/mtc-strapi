@@ -31,14 +31,20 @@
       "type": "string"
     },
     "Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "Schedule": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule-time.schedule"
     }
   }
 }
