@@ -506,6 +506,10 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    userID: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     Work_company: Schema.Attribute.String;
     Work_date: Schema.Attribute.String;
     Work_position: Schema.Attribute.String;
