@@ -41,10 +41,15 @@
         "audios"
       ]
     },
-    "Schedule": {
+    "AssessmentSchedule": {
       "type": "component",
       "repeatable": true,
       "component": "schedule-time.schedule"
+    },
+    "TrainingSchedule": {
+      "type": "component",
+      "repeatable": true,
+      "component": "schedule-time.training-schedule"
     }
   }
 }

@@ -1,9 +1,8 @@
 {
-  "collectionName": "components_schedule_time_schedules",
+  "collectionName": "components_schedule_time_training_schedules",
   "info": {
-    "displayName": "Assessment Schedule",
-    "icon": "apps",
-    "description": ""
+    "displayName": "Training Schedule",
+    "icon": "database"
   },
   "options": {},
   "attributes": {
@@ -18,9 +17,9 @@
       "relation": "oneToOne",
       "target": "api::course.course"
     },
-    "trainer": {
+    "trainers": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::trainer.trainer"
     },
     "students": {

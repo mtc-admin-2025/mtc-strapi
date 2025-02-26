@@ -382,6 +382,10 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Assessment_Type: Schema.Attribute.String;
+    AssessmentSchedule: Schema.Attribute.Component<
+      'schedule-time.schedule',
+      true
+    >;
     Course_Description: Schema.Attribute.Text;
     Course_ID: Schema.Attribute.String;
     Course_Name: Schema.Attribute.String;
@@ -399,8 +403,11 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Schedule: Schema.Attribute.Component<'schedule-time.schedule', true>;
     trainer: Schema.Attribute.Relation<'manyToOne', 'api::trainer.trainer'>;
+    TrainingSchedule: Schema.Attribute.Component<
+      'schedule-time.training-schedule',
+      true
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1012,7 +1019,6 @@ export interface PluginUsersPermissionsUser
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -1044,6 +1050,7 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    student: Schema.Attribute.Relation<'oneToOne', 'api::student.student'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
