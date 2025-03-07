@@ -10,6 +10,8 @@ export interface ScheduleTimeSchedule extends Struct.ComponentSchema {
   attributes: {
     course: Schema.Attribute.Relation<'oneToOne', 'api::course.course'>;
     Schedule_date: Schema.Attribute.String;
+    Schedule_Name: Schema.Attribute.String;
+    Schedule_Price: Schema.Attribute.Decimal;
     Schedule_time: Schema.Attribute.String;
     students: Schema.Attribute.Relation<'oneToMany', 'api::student.student'>;
     trainer: Schema.Attribute.Relation<'oneToOne', 'api::trainer.trainer'>;
@@ -19,12 +21,15 @@ export interface ScheduleTimeSchedule extends Struct.ComponentSchema {
 export interface ScheduleTimeTrainingSchedule extends Struct.ComponentSchema {
   collectionName: 'components_schedule_time_training_schedules';
   info: {
+    description: '';
     displayName: 'Training Schedule';
     icon: 'database';
   };
   attributes: {
     course: Schema.Attribute.Relation<'oneToOne', 'api::course.course'>;
     Schedule_date: Schema.Attribute.String;
+    Schedule_Name: Schema.Attribute.String;
+    Schedule_Price: Schema.Attribute.Decimal;
     Schedule_time: Schema.Attribute.String;
     students: Schema.Attribute.Relation<'oneToMany', 'api::student.student'>;
     trainers: Schema.Attribute.Relation<'oneToMany', 'api::trainer.trainer'>;

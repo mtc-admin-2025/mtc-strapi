@@ -27,6 +27,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::student.student"
+    },
+    "Schedule_Name": {
+      "type": "string"
+    },
+    "Schedule_Price": {
+      "type": "decimal"
     }
   }
 }

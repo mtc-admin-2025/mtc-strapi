@@ -2,7 +2,8 @@
   "collectionName": "components_schedule_time_training_schedules",
   "info": {
     "displayName": "Training Schedule",
-    "icon": "database"
+    "icon": "database",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -26,6 +27,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::student.student"
+    },
+    "Schedule_Name": {
+      "type": "string"
+    },
+    "Schedule_Price": {
+      "type": "decimal"
     }
   }
 }
