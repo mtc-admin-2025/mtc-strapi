@@ -27,9 +27,6 @@
       "target": "api::trainer.trainer",
       "inversedBy": "courses"
     },
-    "Assessment_Type": {
-      "type": "string"
-    },
     "Image": {
       "type": "media",
       "multiple": true,
@@ -50,6 +47,12 @@
       "type": "component",
       "repeatable": true,
       "component": "schedule-time.training-schedule"
+    },
+    "Assessment_Price": {
+      "type": "decimal"
+    },
+    "Training_Price": {
+      "type": "decimal"
     }
   }
 }

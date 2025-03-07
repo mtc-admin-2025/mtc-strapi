@@ -381,7 +381,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Assessment_Type: Schema.Attribute.String;
+    Assessment_Price: Schema.Attribute.Decimal;
     AssessmentSchedule: Schema.Attribute.Component<
       'schedule-time.schedule',
       true
@@ -404,6 +404,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     trainer: Schema.Attribute.Relation<'manyToOne', 'api::trainer.trainer'>;
+    Training_Price: Schema.Attribute.Decimal;
     TrainingSchedule: Schema.Attribute.Component<
       'schedule-time.training-schedule',
       true
