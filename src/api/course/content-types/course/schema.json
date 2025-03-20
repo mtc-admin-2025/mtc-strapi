@@ -21,11 +21,10 @@
     "Course_Description": {
       "type": "text"
     },
-    "trainer": {
+    "trainers": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::trainer.trainer",
-      "inversedBy": "courses"
+      "relation": "oneToMany",
+      "target": "api::trainer.trainer"
     },
     "Image": {
       "type": "media",

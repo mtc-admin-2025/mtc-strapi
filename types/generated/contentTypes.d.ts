@@ -404,7 +404,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    trainer: Schema.Attribute.Relation<'manyToOne', 'api::trainer.trainer'>;
+    trainers: Schema.Attribute.Relation<'oneToMany', 'api::trainer.trainer'>;
     Training_Price: Schema.Attribute.Decimal;
     TrainingSchedule: Schema.Attribute.Component<
       'schedule-time.training-schedule',
@@ -568,7 +568,6 @@ export interface ApiTrainerTrainer extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    courses: Schema.Attribute.Relation<'oneToMany', 'api::course.course'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -584,8 +583,9 @@ export interface ApiTrainerTrainer extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     Rating: Schema.Attribute.Integer;
     Specializations: Schema.Attribute.String;
+    Trainees_Failed: Schema.Attribute.BigInteger;
     Trainees_Ongoing: Schema.Attribute.Integer;
-    Trainees_Passes: Schema.Attribute.Integer;
+    Trainees_Passed: Schema.Attribute.Integer;
     Trainer_ID: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

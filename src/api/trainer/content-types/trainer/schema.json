@@ -24,7 +24,7 @@
     "Specializations": {
       "type": "string"
     },
-    "Trainees_Passes": {
+    "Trainees_Passed": {
       "type": "integer"
     },
     "Trainees_Ongoing": {
@@ -44,11 +44,8 @@
         "audios"
       ]
     },
-    "courses": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::course.course",
-      "mappedBy": "trainer"
+    "Trainees_Failed": {
+      "type": "biginteger"
     }
   }
 }
