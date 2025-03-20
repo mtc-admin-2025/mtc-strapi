@@ -53,6 +53,11 @@
     },
     "Training_Price": {
       "type": "decimal"
+    },
+    "enrolls": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::enroll.enroll"
     }
   }
 }

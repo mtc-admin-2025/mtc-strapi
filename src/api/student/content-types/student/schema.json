@@ -153,9 +153,6 @@
     "Competency_title": {
       "type": "string"
     },
-    "Compe": {
-      "type": "string"
-    },
     "Competency_level": {
       "type": "string"
     },
@@ -193,16 +190,15 @@
         "audios"
       ]
     },
-    "trainers": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::trainer.trainer",
-      "mappedBy": "students"
-    },
     "userID": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "enrolls": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::enroll.enroll"
     }
   }
 }

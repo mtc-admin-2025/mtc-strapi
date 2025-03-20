@@ -392,6 +392,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    enrolls: Schema.Attribute.Relation<'oneToMany', 'api::enroll.enroll'>;
     Image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -409,6 +410,35 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       'schedule-time.training-schedule',
       true
     >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEnrollEnroll extends Struct.CollectionTypeSchema {
+  collectionName: 'enrolls';
+  info: {
+    displayName: 'Enroll';
+    pluralName: 'enrolls';
+    singularName: 'enroll';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    courses: Schema.Attribute.Relation<'oneToMany', 'api::course.course'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::enroll.enroll'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    students: Schema.Attribute.Relation<'oneToMany', 'api::student.student'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -443,7 +473,6 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
         'OFW',
       ]
     >;
-    Compe: Schema.Attribute.String;
     Competency_certnum: Schema.Attribute.String;
     Competency_expdate: Schema.Attribute.String;
     Competency_issuedate: Schema.Attribute.String;
@@ -465,6 +494,7 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
         'OFW',
       ]
     >;
+    enrolls: Schema.Attribute.Relation<'oneToMany', 'api::enroll.enroll'>;
     Fathers_Name: Schema.Attribute.String;
     Highest_Educational_Attainment: Schema.Attribute.Enumeration<
       [
@@ -499,7 +529,6 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
     Sex: Schema.Attribute.Enumeration<['Male', 'Female']>;
     Signature: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Students_Name: Schema.Attribute.String;
-    trainers: Schema.Attribute.Relation<'manyToMany', 'api::trainer.trainer'>;
     Training_conducted: Schema.Attribute.String;
     Training_date: Schema.Attribute.String;
     Training_hours: Schema.Attribute.String;
@@ -555,7 +584,6 @@ export interface ApiTrainerTrainer extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     Rating: Schema.Attribute.Integer;
     Specializations: Schema.Attribute.String;
-    students: Schema.Attribute.Relation<'manyToMany', 'api::student.student'>;
     Trainees_Ongoing: Schema.Attribute.Integer;
     Trainees_Passes: Schema.Attribute.Integer;
     Trainer_ID: Schema.Attribute.String;
@@ -1075,6 +1103,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::course.course': ApiCourseCourse;
+      'api::enroll.enroll': ApiEnrollEnroll;
       'api::student.student': ApiStudentStudent;
       'api::trainer.trainer': ApiTrainerTrainer;
       'plugin::content-releases.release': PluginContentReleasesRelease;

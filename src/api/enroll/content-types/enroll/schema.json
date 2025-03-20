@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "enrolls",
+  "info": {
+    "singularName": "enroll",
+    "pluralName": "enrolls",
+    "displayName": "Enroll"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course"
+    },
+    "students": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::student.student"
+    }
+  }
+}

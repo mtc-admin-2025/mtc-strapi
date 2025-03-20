@@ -44,12 +44,6 @@
         "audios"
       ]
     },
-    "students": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::student.student",
-      "inversedBy": "trainers"
-    },
     "courses": {
       "type": "relation",
       "relation": "oneToMany",
