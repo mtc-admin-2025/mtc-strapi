@@ -429,6 +429,7 @@ export interface ApiEnrollEnroll extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    completion: Schema.Attribute.String;
     courses: Schema.Attribute.Relation<'manyToMany', 'api::course.course'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -439,6 +440,7 @@ export interface ApiEnrollEnroll extends Struct.CollectionTypeSchema {
       'api::enroll.enroll'
     > &
       Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     students: Schema.Attribute.Relation<'oneToMany', 'api::student.student'>;
     updatedAt: Schema.Attribute.DateTime;

@@ -22,6 +22,12 @@
       "relation": "manyToMany",
       "target": "api::course.course",
       "inversedBy": "enrolls"
+    },
+    "completion": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
     }
   }
 }
