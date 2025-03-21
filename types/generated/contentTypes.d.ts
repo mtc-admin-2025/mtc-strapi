@@ -392,7 +392,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    enrolls: Schema.Attribute.Relation<'oneToMany', 'api::enroll.enroll'>;
+    enrolls: Schema.Attribute.Relation<'manyToMany', 'api::enroll.enroll'>;
     Image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -403,6 +403,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       'api::course.course'
     > &
       Schema.Attribute.Private;
+    NCtier: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     trainers: Schema.Attribute.Relation<'oneToMany', 'api::trainer.trainer'>;
     Training_Price: Schema.Attribute.Decimal;
@@ -419,6 +420,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
 export interface ApiEnrollEnroll extends Struct.CollectionTypeSchema {
   collectionName: 'enrolls';
   info: {
+    description: '';
     displayName: 'Enroll';
     pluralName: 'enrolls';
     singularName: 'enroll';
@@ -427,7 +429,7 @@ export interface ApiEnrollEnroll extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    courses: Schema.Attribute.Relation<'oneToMany', 'api::course.course'>;
+    courses: Schema.Attribute.Relation<'manyToMany', 'api::course.course'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

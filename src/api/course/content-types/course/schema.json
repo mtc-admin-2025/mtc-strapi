@@ -53,10 +53,14 @@
     "Training_Price": {
       "type": "decimal"
     },
+    "NCtier": {
+      "type": "string"
+    },
     "enrolls": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::enroll.enroll"
+      "relation": "manyToMany",
+      "target": "api::enroll.enroll",
+      "mappedBy": "courses"
     }
   }
 }
