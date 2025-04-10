@@ -31,37 +31,11 @@
     "Address": {
       "type": "text"
     },
-    "Client_Type": {
-      "type": "enumeration",
-      "enum": [
-        "TVET Graduating Student",
-        "TVET Graduate",
-        "Industry Worker",
-        "K-12",
-        "OFW"
-      ]
-    },
     "Mothers_Name": {
       "type": "string"
     },
     "Fathers_Name": {
       "type": "string"
-    },
-    "Sex": {
-      "type": "enumeration",
-      "enum": [
-        "Male",
-        "Female"
-      ]
-    },
-    "Civil_Status": {
-      "type": "enumeration",
-      "enum": [
-        "Single ",
-        "Married",
-        "Widowed",
-        "Separated"
-      ]
     },
     "Contact_Number": {
       "type": "string"
@@ -69,35 +43,11 @@
     "Email": {
       "type": "string"
     },
-    "Highest_Educational_Attainment": {
-      "type": "enumeration",
-      "enum": [
-        "Elementary Graduate",
-        "High School Graduate",
-        "TVET Graduate",
-        "College Level",
-        "College Graduate"
-      ]
-    },
-    "Employment_Status": {
-      "type": "enumeration",
-      "enum": [
-        "Casual",
-        "Job Order",
-        "Probationary",
-        "Permanent",
-        "Self-Employed",
-        "OFW"
-      ]
-    },
     "Birthdate": {
       "type": "string"
     },
     "Birthplace": {
       "type": "text"
-    },
-    "Age": {
-      "type": "integer"
     },
     "Work_company": {
       "type": "string"
@@ -113,9 +63,6 @@
     },
     "Work_status": {
       "type": "string"
-    },
-    "Work_years": {
-      "type": "integer"
     },
     "Tranining_title": {
       "type": "string"
@@ -199,6 +146,27 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::enroll.enroll"
+    },
+    "Client_Type": {
+      "type": "string"
+    },
+    "Sex": {
+      "type": "string"
+    },
+    "Civil_Status": {
+      "type": "string"
+    },
+    "Highest_Educational_Attainment": {
+      "type": "string"
+    },
+    "Employment_Status": {
+      "type": "string"
+    },
+    "Age": {
+      "type": "string"
+    },
+    "Work_years": {
+      "type": "string"
     }
   }
 }

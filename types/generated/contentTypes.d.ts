@@ -462,21 +462,11 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Address: Schema.Attribute.Text;
-    Age: Schema.Attribute.Integer;
+    Age: Schema.Attribute.String;
     Birthdate: Schema.Attribute.String;
     Birthplace: Schema.Attribute.Text;
-    Civil_Status: Schema.Attribute.Enumeration<
-      ['Single ', 'Married', 'Widowed', 'Separated']
-    >;
-    Client_Type: Schema.Attribute.Enumeration<
-      [
-        'TVET Graduating Student',
-        'TVET Graduate',
-        'Industry Worker',
-        'K-12',
-        'OFW',
-      ]
-    >;
+    Civil_Status: Schema.Attribute.String;
+    Client_Type: Schema.Attribute.String;
     Competency_certnum: Schema.Attribute.String;
     Competency_expdate: Schema.Attribute.String;
     Competency_issuedate: Schema.Attribute.String;
@@ -488,27 +478,10 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Email: Schema.Attribute.String;
-    Employment_Status: Schema.Attribute.Enumeration<
-      [
-        'Casual',
-        'Job Order',
-        'Probationary',
-        'Permanent',
-        'Self-Employed',
-        'OFW',
-      ]
-    >;
+    Employment_Status: Schema.Attribute.String;
     enrolls: Schema.Attribute.Relation<'oneToMany', 'api::enroll.enroll'>;
     Fathers_Name: Schema.Attribute.String;
-    Highest_Educational_Attainment: Schema.Attribute.Enumeration<
-      [
-        'Elementary Graduate',
-        'High School Graduate',
-        'TVET Graduate',
-        'College Level',
-        'College Graduate',
-      ]
-    >;
+    Highest_Educational_Attainment: Schema.Attribute.String;
     License_expiry: Schema.Attribute.String;
     License_rating: Schema.Attribute.String;
     License_remarks: Schema.Attribute.String;
@@ -530,7 +503,7 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
         maxLength: 18;
         minLength: 18;
       }>;
-    Sex: Schema.Attribute.Enumeration<['Male', 'Female']>;
+    Sex: Schema.Attribute.String;
     Signature: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Students_Name: Schema.Attribute.String;
     Training_conducted: Schema.Attribute.String;
@@ -556,7 +529,7 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
     Work_position: Schema.Attribute.String;
     Work_salary: Schema.Attribute.String;
     Work_status: Schema.Attribute.String;
-    Work_years: Schema.Attribute.Integer;
+    Work_years: Schema.Attribute.String;
   };
 }
 
