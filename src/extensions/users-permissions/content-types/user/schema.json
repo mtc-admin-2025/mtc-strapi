@@ -69,6 +69,57 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::student.student"
+    },
+    "reference_num": {
+      "type": "string"
+    },
+    "unique_learners_id": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "middle_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "suffix": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "mother_name": {
+      "type": "string"
+    },
+    "father_name": {
+      "type": "string"
+    },
+    "contact_number": {
+      "type": "string"
+    },
+    "birthdate": {
+      "type": "string"
+    },
+    "birthplace": {
+      "type": "text"
+    },
+    "sex": {
+      "type": "string"
+    },
+    "civil_status": {
+      "type": "string"
+    },
+    "employment": {
+      "type": "string"
+    },
+    "educational_attainment": {
+      "type": "string"
+    },
+    "age": {
+      "type": "string"
     }
   }
 }
