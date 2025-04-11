@@ -1029,7 +1029,7 @@ export interface PluginUsersPermissionsUser
   attributes: {
     address: Schema.Attribute.Text;
     age: Schema.Attribute.String;
-    birthdate: Schema.Attribute.String;
+    birthdate: Schema.Attribute.Date;
     birthplace: Schema.Attribute.Text;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     civil_status: Schema.Attribute.String;
