@@ -33,6 +33,11 @@
     },
     "Schedule_Price": {
       "type": "decimal"
+    },
+    "Enrollments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "enrollments.training-enroll"
     }
   }
 }

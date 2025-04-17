@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_enrollments_training_enrolls",
+  "info": {
+    "displayName": "Training Enroll",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "Students_Name": {
+      "type": "string"
+    },
+    "NCtier": {
+      "type": "string"
+    },
+    "Completion": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "string"
+    }
+  }
+}

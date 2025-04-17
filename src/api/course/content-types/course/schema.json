@@ -47,12 +47,6 @@
       "repeatable": true,
       "component": "schedule-time.training-schedule"
     },
-    "Assessment_Price": {
-      "type": "decimal"
-    },
-    "Training_Price": {
-      "type": "decimal"
-    },
     "NCtier": {
       "type": "string"
     },
