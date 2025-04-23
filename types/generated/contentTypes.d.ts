@@ -391,7 +391,6 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    enrolls: Schema.Attribute.Relation<'manyToMany', 'api::enroll.enroll'>;
     Image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -402,7 +401,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       'api::course.course'
     > &
       Schema.Attribute.Private;
-    NCtier: Schema.Attribute.String;
+    NCtier: Schema.Attribute.Enumeration<['NC-II', 'NC-III', 'NC-IV']>;
     publishedAt: Schema.Attribute.DateTime;
     trainers: Schema.Attribute.Relation<'oneToMany', 'api::trainer.trainer'>;
     TrainingSchedule: Schema.Attribute.Component<
@@ -412,122 +411,6 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-  };
-}
-
-export interface ApiEnrollEnroll extends Struct.CollectionTypeSchema {
-  collectionName: 'enrolls';
-  info: {
-    description: '';
-    displayName: 'Enroll';
-    pluralName: 'enrolls';
-    singularName: 'enroll';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    completion: Schema.Attribute.String;
-    courses: Schema.Attribute.Relation<'manyToMany', 'api::course.course'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::enroll.enroll'
-    > &
-      Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    students: Schema.Attribute.Relation<'oneToMany', 'api::student.student'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
-  collectionName: 'students';
-  info: {
-    description: '';
-    displayName: 'Student';
-    pluralName: 'students';
-    singularName: 'student';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Address: Schema.Attribute.Text;
-    Age: Schema.Attribute.String;
-    Birthdate: Schema.Attribute.String;
-    Birthplace: Schema.Attribute.Text;
-    Civil_Status: Schema.Attribute.String;
-    Client_Type: Schema.Attribute.String;
-    Competency_certnum: Schema.Attribute.String;
-    Competency_expdate: Schema.Attribute.String;
-    Competency_issuedate: Schema.Attribute.String;
-    Competency_level: Schema.Attribute.String;
-    Competency_sector: Schema.Attribute.String;
-    Competency_title: Schema.Attribute.String;
-    Contact_Number: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Email: Schema.Attribute.String;
-    Employment_Status: Schema.Attribute.String;
-    enrolls: Schema.Attribute.Relation<'oneToMany', 'api::enroll.enroll'>;
-    Fathers_Name: Schema.Attribute.String;
-    Highest_Educational_Attainment: Schema.Attribute.String;
-    License_expiry: Schema.Attribute.String;
-    License_rating: Schema.Attribute.String;
-    License_remarks: Schema.Attribute.String;
-    License_title: Schema.Attribute.String;
-    License_venue: Schema.Attribute.String;
-    License_year: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::student.student'
-    > &
-      Schema.Attribute.Private;
-    Mothers_Name: Schema.Attribute.String;
-    Picture: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    publishedAt: Schema.Attribute.DateTime;
-    Reference_Number: Schema.Attribute.String &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 18;
-        minLength: 18;
-      }>;
-    Sex: Schema.Attribute.String;
-    Signature: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Students_Name: Schema.Attribute.String;
-    Training_conducted: Schema.Attribute.String;
-    Training_date: Schema.Attribute.String;
-    Training_hours: Schema.Attribute.String;
-    Training_venue: Schema.Attribute.String;
-    Tranining_title: Schema.Attribute.String;
-    Unique_Learners_Identifier: Schema.Attribute.Text &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 16;
-        minLength: 16;
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    userID: Schema.Attribute.Relation<
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-    Work_company: Schema.Attribute.String;
-    Work_date: Schema.Attribute.String;
-    Work_position: Schema.Attribute.String;
-    Work_salary: Schema.Attribute.String;
-    Work_status: Schema.Attribute.String;
-    Work_years: Schema.Attribute.String;
   };
 }
 
@@ -1069,7 +952,6 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.role'
     >;
     sex: Schema.Attribute.String;
-    student: Schema.Attribute.Relation<'oneToOne', 'api::student.student'>;
     suffix: Schema.Attribute.String;
     unique_learners_id: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -1095,8 +977,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::course.course': ApiCourseCourse;
-      'api::enroll.enroll': ApiEnrollEnroll;
-      'api::student.student': ApiStudentStudent;
       'api::trainer.trainer': ApiTrainerTrainer;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

@@ -23,11 +23,6 @@
       "relation": "oneToOne",
       "target": "api::trainer.trainer"
     },
-    "students": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::student.student"
-    },
     "Schedule_Name": {
       "type": "string"
     },

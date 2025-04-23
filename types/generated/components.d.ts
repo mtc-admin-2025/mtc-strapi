@@ -10,6 +10,7 @@ export interface EnrollmentsAssessmentEnroll extends Struct.ComponentSchema {
   attributes: {
     Competency: Schema.Attribute.String;
     NCtier: Schema.Attribute.String;
+    Students_Email: Schema.Attribute.String;
     Students_Name: Schema.Attribute.String;
     Type: Schema.Attribute.String;
   };
@@ -18,12 +19,14 @@ export interface EnrollmentsAssessmentEnroll extends Struct.ComponentSchema {
 export interface EnrollmentsTrainingEnroll extends Struct.ComponentSchema {
   collectionName: 'components_enrollments_training_enrolls';
   info: {
+    description: '';
     displayName: 'Training Enroll';
     icon: 'alien';
   };
   attributes: {
     Completion: Schema.Attribute.String;
     NCtier: Schema.Attribute.String;
+    Students_Email: Schema.Attribute.String;
     Students_Name: Schema.Attribute.String;
     Type: Schema.Attribute.String;
   };
@@ -46,7 +49,6 @@ export interface ScheduleTimeSchedule extends Struct.ComponentSchema {
     Schedule_Name: Schema.Attribute.String;
     Schedule_Price: Schema.Attribute.Decimal;
     Schedule_time: Schema.Attribute.String;
-    students: Schema.Attribute.Relation<'oneToMany', 'api::student.student'>;
     trainer: Schema.Attribute.Relation<'oneToOne', 'api::trainer.trainer'>;
   };
 }
@@ -68,7 +70,6 @@ export interface ScheduleTimeTrainingSchedule extends Struct.ComponentSchema {
     Schedule_Name: Schema.Attribute.String;
     Schedule_Price: Schema.Attribute.Decimal;
     Schedule_time: Schema.Attribute.String;
-    students: Schema.Attribute.Relation<'oneToMany', 'api::student.student'>;
     trainers: Schema.Attribute.Relation<'oneToMany', 'api::trainer.trainer'>;
   };
 }

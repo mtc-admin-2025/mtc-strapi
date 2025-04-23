@@ -48,13 +48,12 @@
       "component": "schedule-time.training-schedule"
     },
     "NCtier": {
-      "type": "string"
-    },
-    "enrolls": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::enroll.enroll",
-      "mappedBy": "courses"
+      "type": "enumeration",
+      "enum": [
+        "NC-II",
+        "NC-III",
+        "NC-IV"
+      ]
     }
   }
 }

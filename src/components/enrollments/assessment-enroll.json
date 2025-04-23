@@ -18,6 +18,9 @@
     },
     "Type": {
       "type": "string"
+    },
+    "Students_Email": {
+      "type": "string"
     }
   }
 }
