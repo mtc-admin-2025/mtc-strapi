@@ -414,6 +414,42 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEnollmentEnollment extends Struct.CollectionTypeSchema {
+  collectionName: 'enollments';
+  info: {
+    description: '';
+    displayName: 'Enrollment';
+    pluralName: 'enollments';
+    singularName: 'enollment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Client_Type: Schema.Attribute.String;
+    Competency: Schema.Attribute.String;
+    Confirmed: Schema.Attribute.String;
+    Course_Name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::enollment.enollment'
+    > &
+      Schema.Attribute.Private;
+    NCtier: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Schedule: Schema.Attribute.String;
+    Students_Email: Schema.Attribute.String;
+    Students_Name: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTrainerTrainer extends Struct.CollectionTypeSchema {
   collectionName: 'trainers';
   info: {
@@ -977,6 +1013,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::course.course': ApiCourseCourse;
+      'api::enollment.enollment': ApiEnollmentEnollment;
       'api::trainer.trainer': ApiTrainerTrainer;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
