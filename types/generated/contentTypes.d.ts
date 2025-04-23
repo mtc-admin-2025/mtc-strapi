@@ -369,6 +369,41 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAssessmentAssessment extends Struct.CollectionTypeSchema {
+  collectionName: 'assessments';
+  info: {
+    displayName: 'Assessment';
+    pluralName: 'assessments';
+    singularName: 'assessment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Client_Type: Schema.Attribute.String;
+    Competency: Schema.Attribute.String;
+    Confirmed: Schema.Attribute.String;
+    Course_Name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::assessment.assessment'
+    > &
+      Schema.Attribute.Private;
+    NCtier: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Schedule: Schema.Attribute.String;
+    Students_Email: Schema.Attribute.String;
+    Students_Name: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
   collectionName: 'courses';
   info: {
@@ -481,6 +516,41 @@ export interface ApiTrainerTrainer extends Struct.CollectionTypeSchema {
     Trainees_Ongoing: Schema.Attribute.Integer;
     Trainees_Passed: Schema.Attribute.Integer;
     Trainer_ID: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTrainingTraining extends Struct.CollectionTypeSchema {
+  collectionName: 'trainings';
+  info: {
+    displayName: 'Training';
+    pluralName: 'trainings';
+    singularName: 'training';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Client_Type: Schema.Attribute.String;
+    Competency: Schema.Attribute.String;
+    Confirmed: Schema.Attribute.String;
+    Course_Name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::training.training'
+    > &
+      Schema.Attribute.Private;
+    NCtier: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Schedule: Schema.Attribute.String;
+    Students_Email: Schema.Attribute.String;
+    Students_Name: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1012,9 +1082,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::assessment.assessment': ApiAssessmentAssessment;
       'api::course.course': ApiCourseCourse;
       'api::enollment.enollment': ApiEnollmentEnollment;
       'api::trainer.trainer': ApiTrainerTrainer;
+      'api::training.training': ApiTrainingTraining;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
