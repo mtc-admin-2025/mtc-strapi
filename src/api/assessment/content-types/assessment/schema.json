@@ -4,7 +4,8 @@
   "info": {
     "singularName": "assessment",
     "pluralName": "assessments",
-    "displayName": "Assessment"
+    "displayName": "Assessment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -34,6 +35,11 @@
     },
     "Confirmed": {
       "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

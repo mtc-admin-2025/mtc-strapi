@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAssessmentAssessment extends Struct.CollectionTypeSchema {
   collectionName: 'assessments';
   info: {
+    description: '';
     displayName: 'Assessment';
     pluralName: 'assessments';
     singularName: 'assessment';
@@ -401,6 +402,10 @@ export interface ApiAssessmentAssessment extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    users_permissions_user: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
   };
 }
 
