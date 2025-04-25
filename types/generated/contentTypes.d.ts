@@ -530,6 +530,7 @@ export interface ApiTrainerTrainer extends Struct.CollectionTypeSchema {
 export interface ApiTrainingTraining extends Struct.CollectionTypeSchema {
   collectionName: 'trainings';
   info: {
+    description: '';
     displayName: 'Training';
     pluralName: 'trainings';
     singularName: 'training';
@@ -559,6 +560,10 @@ export interface ApiTrainingTraining extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    users_permissions_user: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
   };
 }
 
