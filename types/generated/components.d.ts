@@ -49,6 +49,7 @@ export interface ScheduleTimeSchedule extends Struct.ComponentSchema {
     Schedule_Name: Schema.Attribute.String;
     Schedule_Price: Schema.Attribute.Decimal;
     Schedule_time: Schema.Attribute.String;
+    Slot: Schema.Attribute.Integer;
     trainer: Schema.Attribute.Relation<'oneToOne', 'api::trainer.trainer'>;
   };
 }
@@ -70,6 +71,7 @@ export interface ScheduleTimeTrainingSchedule extends Struct.ComponentSchema {
     Schedule_Name: Schema.Attribute.String;
     Schedule_Price: Schema.Attribute.Decimal;
     Schedule_time: Schema.Attribute.String;
+    Slot: Schema.Attribute.Integer;
     trainers: Schema.Attribute.Relation<'oneToMany', 'api::trainer.trainer'>;
   };
 }
